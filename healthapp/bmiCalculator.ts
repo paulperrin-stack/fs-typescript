@@ -1,6 +1,9 @@
-import { isNotNumber } from "./utils";
+import { isNotNumber } from "./utils.ts";
 
-const calculateBmi = (heightCm: number, weightKg: number): string => {
+export const calculateBmi = (
+    heightCm: number,
+    weightKg: number
+): string => {
     const heightM = heightCm / 100;
     const bmi = weightKg / (heightM * heightM);
 
@@ -19,7 +22,9 @@ const calculateBmi = (heightCm: number, weightKg: number): string => {
     return "Obese";
 };
 
-const parseArguments = (args: string[]): [number, number] => {
+export const parseBmiArguments = (
+    args: string[]
+): [number, number] => {
     if (args.length !== 4) {
         throw new Error("Wrong number of arguments");
     }
@@ -30,19 +35,3 @@ const parseArguments = (args: string[]): [number, number] => {
 
     return [Number(args[2]), Number(args[3])];
 };
-
-try {
-    const [height, weight] = parseArguments(process.argv);
-
-    console.log(calculateBmi(height, weight));
-} catch (error: unknown) {
-    let errorMessage = "Something went wrong.";
-
-    if (error instanceof Error) {
-        errorMessage += " Error: " + error.message;
-    }
-
-    console.log(errorMessage);
-}
-
-export { calculateBmi };

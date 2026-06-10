@@ -73,21 +73,22 @@ const parseExerciseArguments = (
     };
 };
 
-try {
-    const { target, dailyHours } =
-    parseExerciseArguments(process.argv);
+if (process.argv.length > 2) {
+    try {
+        const { target, dailyHours } = parseExerciseArguments(process.argv);
 
-    console.log(
-        calculateExercises(dailyHours, target)
-    );
-} catch (error: unknown) {
-    let errorMessage = "Something went wrong.";
+        console.log(
+            calculateExercises(dailyHours, target)
+        );
+    } catch (error: unknown) {
+        let errorMessage = 'Something went wrong.';
 
-    if (error instanceof Error) {
-        errorMessage += " Error: " + error.message;
+        if (error instanceof Error) {
+            errorMessage += ' Error: ' + error.message;
+        }
+        
+        console.log(errorMessage);
     }
-
-    console.log(errorMessage);
 }
 
 export { calculateExercises };

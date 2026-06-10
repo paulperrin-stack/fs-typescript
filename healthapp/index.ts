@@ -34,11 +34,15 @@ app.get('/bmi', (req, res) => {
     });
 });
 
-app.post('/exercises', (req, res) => {
-    const body = req.body;
+app.post('/exercises', (req, res) => {
+    const body = req.body as {
+        daily_exercises?: unknown;
+        target?: unknown;
+    };
 
     if (
-        body.daily_exercises === undefined || body.target === undefined
+        body.daily_exercises === undefined ||
+        body.target === undefined
     ) {
         return res.status(400).json({
             error: 'parameters missing'
@@ -46,14 +50,14 @@ app.post('/exercises', (req, res) => {
     }
 
     const dailyExercises = body.daily_exercises;
-
     const target = body.target;
 
     if (
         !Array.isArray(dailyExercises) ||
         typeof target !== 'number' ||
-        dailyExercises.some(
-            value => typeof value !== 'number'
+        !dailyExercises.every(
+            (value): value is number =>
+                typeof value === 'number'
         )
     ) {
         return res.status(400).json({

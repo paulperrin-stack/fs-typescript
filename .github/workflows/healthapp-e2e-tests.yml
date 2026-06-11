@@ -7,7 +7,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 10        # safety net: fail fast instead of running 6h
+    timeout-minutes: 10
 
     steps:
     - name: Checkout code
@@ -36,10 +36,6 @@ jobs:
     - name: Install test dependencies
       working-directory: ./healthapp-tests
       run: npm install
-
-    - name: Install Playwright browsers
-      working-directory: ./healthapp-tests
-      run: npx playwright install --with-deps chromium
 
     - name: Run e2e tests
       working-directory: ./healthapp-tests

@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
-    "dev": "ts-node src/index.ts",
-    "start": "node build/index.ts",
+    "dev": "node --watch src/index.ts",
+    "start": "node src/index.ts",
     "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1"

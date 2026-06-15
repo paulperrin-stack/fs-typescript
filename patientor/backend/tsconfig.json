@@ -1,16 +1,17 @@
 {
     "compilerOptions": {
-        "target": "ES6",
-        "outDir": "./build/",
-        "rootDir": "./src",
-        "module": "commonjs",
-        "moduleResolution": "node10",
-        "ignoreDeprecations": "6.0",
+        "target": "ES2022",
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "allowImportingTsExtensions": true,
+        "rewriteRelativeImportExtensions": true,
+        "resolveJsonModule": true,
+        "noEmit": true,
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "esModuleInterop": true
-    }
+  }
 }

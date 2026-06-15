@@ -5,7 +5,7 @@ import type { NonSensitivePatient } from '../types.ts';
 const router = express.Router();
 
 router.get('/', (_req, res: Response<NonSensitivePatient[]>) => {
-    res.send(patientService.getNonSenstivePatients());
+    res.send(patientService.getNonSensitivePatients());
 });
 
 export default router;

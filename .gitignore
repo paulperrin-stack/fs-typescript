@@ -3,3 +3,5 @@ playwright-report
 test-results
 server.log
 server.pid
+build
+.env

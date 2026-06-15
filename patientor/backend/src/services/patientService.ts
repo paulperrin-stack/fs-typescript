@@ -3,9 +3,9 @@ import type { Patient, NonSensitivePatient } from '../types.ts';
 
 const getPatients = (): Patient[] => {
     return patients;
-}
+};
 
-const getNonSenstivePatients = (): NonSensitivePatient[] => {
+const getNonSensitivePatients = (): NonSensitivePatient[] => {
     return patients.map(({ id, name, dateOfBirth, gender, occupation }) => ({
         id,
         name,
@@ -17,5 +17,5 @@ const getNonSenstivePatients = (): NonSensitivePatient[] => {
 
 export default {
     getPatients,
-    getNonSenstivePatients,
+    getNonSensitivePatients,
 };
